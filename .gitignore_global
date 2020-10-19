@@ -1,0 +1,8 @@
+# Visual Studio configs
+.vs/
+
+# Visual Studio Code configs
+.vscode/
+
+# Jet Brains IDE configs
+.idea/

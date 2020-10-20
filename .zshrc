@@ -125,3 +125,6 @@ unalias -m '*'
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# alias
+alias ls='ls --color=auto'

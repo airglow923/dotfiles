@@ -91,6 +91,7 @@ autocmd FileType make set noexpandtab
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_extra_conf/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " nerd tree
 let NERDTreeShowHidden=1

@@ -128,3 +128,4 @@ eval "$(rbenv init -)"
 
 # alias
 alias ls='ls --color=auto'
+alias john='~/git/john/run/john'

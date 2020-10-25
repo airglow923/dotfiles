@@ -23,7 +23,8 @@ Plugin 'preservim/nerdtree'
 Plugin 'morhetz/gruvbox'
 
 " auto closing brackets, parentheses, qutoes
-Plugin 'jiangmiao/auto-pairs'
+" disabled due to errors
+" Plugin 'jiangmiao/auto-pairs'
 
 " block commenting
 Plugin 'preservim/nerdcommenter'

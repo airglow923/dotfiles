@@ -54,6 +54,11 @@ set colorcolumn=80,100,120
 " background theme
 set background=dark
 
+" absolute line number, relative line numbers
+" aka hybrid line numbers
+set number relativenumber
+set nu rnu
+
 " colorscheme
 colorscheme gruvbox
 

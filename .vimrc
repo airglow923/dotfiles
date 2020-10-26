@@ -36,9 +36,6 @@ call vundle#end()            " required
 syntax on
 filetype plugin indent on    " required
 
-set nu
-set ruler
-
 set expandtab
 set tabstop=4
 set softtabstop=4

@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 export LS_COLORS=$LS_COLORS"ow=1;34:"
 
 # enable glob syntax
-setopt extended_glob
+setopt nomatch
 
 export TERM="xterm-256color"
 

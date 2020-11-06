@@ -82,6 +82,9 @@ autocmd FileType java setlocal tabstop=2 sts=2 shiftwidth=2
 " Makefile
 autocmd FileType make set noexpandtab
 
+" shell
+autocmd FileType sh setlocal tabstop=2 sts=2 shiftwidth=2
+
 "
 " Brief help
 " :PluginList       - lists configured plugins

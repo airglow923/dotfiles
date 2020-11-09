@@ -62,30 +62,6 @@ colorscheme gruvbox
 
 " map leader
 let mapleader = '\'
-
-" indentation style for different file types
-
-" html
-" autocmd FileType html setlocal tabstop=2 sts=2 shiftwidth=2
-
-" css
-" autocmd FileType css setlocal tabstop=2 sts=2 shiftwidth=2
-
-" javascript
-" autocmd FileType javascript setlocal tabstop=2 sts=2 shiftwidth=2
-
-" typescript
-" autocmd FileType typescript setlocal tabstop=2 sts=2 shiftwidth=2
-
-" java
-" autocmd FileType java setlocal tabstop=2 sts=2 shiftwidth=2
-
-" Makefile
-" autocmd FileType make set noexpandtab
-
-" shell
-" autocmd FileType sh setlocal tabstop=2 sts=2 shiftwidth=2
-
 "
 " Brief help
 " :PluginList       - lists configured plugins

@@ -35,6 +35,7 @@ call vundle#end()            " required
 " built-in vim configs
 syntax on
 filetype plugin indent on    " required
+set autoindent
 
 set expandtab
 set tabstop=4

@@ -29,6 +29,9 @@ Plugin 'morhetz/gruvbox'
 " block commenting
 Plugin 'preservim/nerdcommenter'
 
+" clang-format
+Plugin 'rhysd/vim-clang-format'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

@@ -131,5 +131,5 @@ alias ls='ls --color=auto'
 alias john='~/git/john/run/john'
 
 # syntax highlighting for less
-export LESSOPEN="| /path/to/src-hilite-lesspipe.sh %s"
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=" -R "

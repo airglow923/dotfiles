@@ -88,4 +88,7 @@ noremap <leader>nb :NERDTreeFromBookmark<Space>
 noremap <leader>nf :NERDTreeFind<cr>
 
 " nerdcommmenter
-let NERDSpaceDelims=1
+let NERDDefaultAlign = 'left'
+let NERDSpaceDelims = 1
+
+map <C-_> <plug>NERDCommenterToggle

@@ -1,7 +1,13 @@
 BasedOnStyle: LLVM
-IndentWidth: 2
 
-Language: Cpp
-DerivePointerAlignment: false
-PointerAlignment: Left
-PointerBindsToType: true
+# Language: C
+# BasedOnStyle: LLVM
+
+# Language: Cpp
+# BasedOnStyle: LLVM
+
+# Language: Java
+# BasedOnStyle: Google
+
+# Language: JavaScript
+# BasedOnStyle: Google

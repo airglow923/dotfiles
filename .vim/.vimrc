@@ -92,3 +92,6 @@ let NERDDefaultAlign = 'left'
 let NERDSpaceDelims = 1
 
 map <C-_> <plug>NERDCommenterToggle
+
+" clang-format
+map <leader>fmt :ClangFormat<cr>

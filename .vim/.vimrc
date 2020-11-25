@@ -82,9 +82,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
+
 map <C-n> :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark<Space>
-map <leader>nf :NERDTreeFind<cr>
+noremap <leader>nb :NERDTreeFromBookmark<Space>
+noremap <leader>nf :NERDTreeFind<cr>
 
 " nerdcommmenter
 let NERDSpaceDelims=1

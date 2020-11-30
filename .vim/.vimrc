@@ -32,6 +32,9 @@ Plugin 'preservim/nerdcommenter'
 " clang-format
 Plugin 'rhysd/vim-clang-format'
 
+" coc.nvim
+Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarm install --frozen-lockfile'}
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 

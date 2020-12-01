@@ -7,3 +7,5 @@
 [user]
 	name = airglow923
 	email = p.hyundeok76@gmail.com
+[init]
+	defaultBranch = main

@@ -1,13 +1,9 @@
 BasedOnStyle: LLVM
 
-# Language: C
-# BasedOnStyle: LLVM
+Language: Cpp
 
-# Language: Cpp
-# BasedOnStyle: LLVM
+AlwaysBreakTemplateDeclarations: true
+PointerAlignment: Left
 
-# Language: Java
-# BasedOnStyle: Google
-
-# Language: JavaScript
-# BasedOnStyle: Google
+SortIncludes: false
+ReflowComments: false

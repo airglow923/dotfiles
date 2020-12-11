@@ -47,9 +47,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-
 set laststatus=2
-
 set showcmd
 
 " column length indicator
@@ -62,6 +60,9 @@ set background=dark
 " aka hybrid line numbers
 set number relativenumber
 set nu rnu
+
+" copy without line numbers
+se mouse+=a
 
 " colorscheme
 colorscheme gruvbox

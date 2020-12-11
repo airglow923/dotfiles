@@ -1,46 +1,35 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " autocompletion
-Plugin 'ycm-core/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
 
 " airline equivalent to powerline
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " NERDTree
-Plugin 'preservim/nerdtree'
+Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
 
 " colorscheme gruvbox
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " auto closing brackets, parentheses, qutoes
 " disabled due to errors
 " Plugin 'jiangmiao/auto-pairs'
 
 " block commenting
-Plugin 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 
 " clang-format
-Plugin 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 
 " coc.nvim
-Plugin 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarm install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarm install --frozen-lockfile'}
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
 
 " built-in vim configs
 syntax on
-filetype plugin indent on    " required
+filetype plugin indent on
 set autoindent
 
 set expandtab
@@ -69,14 +58,6 @@ colorscheme gruvbox
 
 " map leader
 let mapleader = '\'
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
 
 " ycm
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/.ycm_extra_conf.py'

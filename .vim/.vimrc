@@ -1,7 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " autocompletion
-Plug 'ycm-core/YouCompleteMe', {'do': './install.py'}
+Plug 'ycm-core/YouCompleteMe', {'do': './install.py --all --clangd-completer'}
 
 " airline equivalent to powerline
 Plug 'vim-airline/vim-airline'

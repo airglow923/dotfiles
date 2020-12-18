@@ -136,3 +136,12 @@ alias john='~/git/john/run/john'
 # syntax highlighting for less
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
+
+# tmux
+tmux-kill-unattached() {
+  TMUX_UNATTACHED=$(tmux ls | grep -E -v '\(attached\)$')
+
+  while read session; do
+    tmux kill-session -t "${line%%:*}"
+  done <<< $TMUX_UNATTACHED
+}

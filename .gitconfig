@@ -11,3 +11,5 @@
 	defaultBranch = main
 [pull]
 	ff = only
+[push]
+	followTags = true

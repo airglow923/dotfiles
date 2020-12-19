@@ -34,10 +34,11 @@ flags = [
 '-std=c++20',
 '-x',
 'c++',
-'-isystem',
-'/usr/include',
-'-isystem',
-'/usr/local/include',
+'-isystem', '/usr/include/c++/10',
+'-isystem', '/usr/include/x86_64-linux-gnu/c++/10',
+'-isystem', '/usr/include/c++/10/backward',
+'-isystem', '/usr/local/include',
+'-isystem', '/usr/include',
 ]
 
 
@@ -112,32 +113,20 @@ def GetCompilationInfoForFile( filename ):
   return database.GetCompilationInfoForFile( filename )
 
 
-# This is the entry point; this function is called by ycmd to produce flags for
-# a file.
-def FlagsForFile( filename, **kwargs ):
-  if database:
-    # Bear in mind that compilation_info.compiler_flags_ does NOT return a
-    # python list, but a "list-like" StringVec object
-    compilation_info = GetCompilationInfoForFile( filename )
-    if not compilation_info:
-      return None
+def Settings( **kwargs ):
+  if not database:
+    return {
+      'flags': flags,
+      'include_paths_relative_to_dir': DirectoryOfThisScript()
+    }
+  filename = kwargs[ 'filename' ]
+  compilation_info = GetCompilationInfoForFile( filename )
+  if not compilation_info:
+    return None
 
-    final_flags = MakeRelativePathsInFlagsAbsolute(
-      compilation_info.compiler_flags_,
-      compilation_info.compiler_working_dir_ )
-
-    # NOTE: This is just for YouCompleteMe; it's highly likely that your project
-    # does NOT need to remove the stdlib flag. DO NOT USE THIS IN YOUR
-    # ycm_extra_conf IF YOU'RE NOT 100% SURE YOU NEED IT.
-    try:
-      final_flags.remove( '-stdlib=libc++' )
-    except ValueError:
-      pass
-  else:
-    relative_to = DirectoryOfThisScript()
-    final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
-
+  # Bear in mind that compilation_info.compiler_flags_ does NOT return a
+  # python list, but a "list-like" StringVec object.
   return {
-    'flags': final_flags,
-    'do_cache': True
+    'flags': list( compilation_info.compiler_flags_ ),
+    'include_paths_relative_to_dir': compilation_info.compiler_working_dir_
   }

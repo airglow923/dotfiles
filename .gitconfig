@@ -13,3 +13,10 @@
 	ff = only
 [push]
 	followTags = true
+[commit]
+	gpgsign = true
+	verbose = true
+[gpg]
+	program = gpg
+[rebase]
+	autoStash = true

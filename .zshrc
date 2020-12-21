@@ -145,3 +145,6 @@ tmux-kill-unattached() {
     tmux kill-session -t "${line%%:*}"
   done <<< $TMUX_UNATTACHED
 }
+
+# gpg
+export GPG_TTY${tty)}

@@ -147,4 +147,4 @@ tmux-kill-unattached() {
 }
 
 # gpg
-export GPG_TTY=$(tty)
+export GPG_TTY=$TTY

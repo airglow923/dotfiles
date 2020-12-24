@@ -111,6 +111,17 @@ source $ZSH/oh-my-zsh.sh
 # disable directory highlighting on WSL
 export LS_COLORS=$LS_COLORS"ow=1;34:"
 
+# custom scripts
+SCRIPTS=~/.scripts
+
+tmux-kill-unattached() {
+  $SCRIPTS/tmux-kill-unattached.sh "$@"
+}
+
+swap-file() {
+  $SCRIPTS/swap-file.sh "$@"
+}
+
 # enable glob syntax
 setopt nomatch
 
@@ -136,15 +147,6 @@ alias john='~/git/john/run/john'
 # syntax highlighting for less
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
-
-# tmux
-tmux-kill-unattached() {
-  TMUX_UNATTACHED=$(tmux ls | grep -E -v '\(attached\)$')
-
-  while read session; do
-    tmux kill-session -t "${line%%:*}"
-  done <<< $TMUX_UNATTACHED
-}
 
 # gpg
 export GPG_TTY=$TTY

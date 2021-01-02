@@ -122,6 +122,14 @@ swap-file() {
   $SCRIPTS/swap-file.sh "$@"
 }
 
+init-ts-proj() {
+  $SCRIPTS/init-ts-proj.sh "$@"
+}
+
+jq-inplace() {
+  $SCRIPTS/jq-inplace.sh "$@"
+}
+
 # enable glob syntax
 setopt nomatch
 

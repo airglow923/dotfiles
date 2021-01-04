@@ -109,3 +109,6 @@ if executable(s:clip)
         \ call system(s:clip, @0) | endif
   augroup END
 endif
+
+" extensions C++ file type
+au BufRead,BufNewFile *.tpp set filetype=cpp

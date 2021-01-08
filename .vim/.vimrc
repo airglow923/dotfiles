@@ -112,3 +112,7 @@ endif
 
 " extensions C++ file type
 au BufRead,BufNewFile *.tpp set filetype=cpp
+
+" add .clang-tidy as yml
+au BufRead,BufNewFile .clang-tidy set filetype=yaml
+au BufRead,BufNewFile .clang-format set filetype=yaml

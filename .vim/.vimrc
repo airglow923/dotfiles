@@ -66,11 +66,14 @@ let mapleader = '\'
 let g:ycm_extra_conf_globlist = ['~/Programming/*', '!~/*']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
+" let g:ycm_clangd_binary_path='clangd'
 
 nnoremap <F12> :YcmCompleter GoToDefinition<CR>
 
 " somehow <F36> turns out to be ctrl + F12
 nnoremap <F36> :YcmCompleter GoToDeclaration<CR>
+
+nnoremap <A-CR> :YcmCompleter FixIt<CR>
 
 " nerd tree
 let NERDTreeShowHidden=1

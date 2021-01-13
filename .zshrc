@@ -158,3 +158,6 @@ export LESS=" -R "
 
 # gpg
 export GPG_TTY=$TTY
+
+# Intel compiler
+# source /opt/intel/oneapi/setvars.sh

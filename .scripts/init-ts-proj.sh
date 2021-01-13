@@ -122,7 +122,7 @@ coverage'
 
 echo "${TEMP}" > .eslintignore
 
-TEMP='module.exports = {
+TEMP="module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: [
@@ -135,7 +135,7 @@ TEMP='module.exports = {
   env: {
     node: true
   }
-};'
+};"
 
 echo "${TEMP}" > .eslintrc.js
 

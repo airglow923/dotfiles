@@ -74,8 +74,11 @@ colorscheme gruvbox
 
 " map leader
 let mapleader = '\'
+ 
+"##############################################################################"
+" ycm                                                                          "
+"##############################################################################"
 
-" ycm
 let g:ycm_extra_conf_globlist = ['~/Programming/*', '!~/*']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
@@ -88,7 +91,10 @@ nnoremap <F36> :YcmCompleter GoToDeclaration<CR>
 
 nnoremap <A-CR> :YcmCompleter FixIt<CR>
 
-" nerd tree
+"##############################################################################"
+" nerdtree                                                                     "
+"##############################################################################"
+
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
@@ -97,13 +103,19 @@ map <C-n> :NERDTreeToggle<cr>
 noremap <leader>nb :NERDTreeFromBookmark<Space>
 noremap <leader>nf :NERDTreeFind<cr>
 
-" nerdcommmenter
+"##############################################################################"
+" nerdcommenter                                                                "
+"##############################################################################"
+
 let NERDDefaultAlign = 'left'
 let NERDSpaceDelims = 1
 
 map <C-_> <plug>NERDCommenterToggle
 
-" clang-format
+"##############################################################################"
+" clang-format                                                                 "
+"##############################################################################"
+
 map <leader>fmt :ClangFormat<cr>
 
 " detect WSL

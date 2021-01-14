@@ -35,8 +35,9 @@ call plug#end()
 " built-in vim configs
 syntax on
 filetype plugin indent on
-set autoindent
 
+set autoindent
+set smartindent
 set encoding=utf-8
 set expandtab
 set tabstop=4

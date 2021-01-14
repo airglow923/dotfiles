@@ -30,6 +30,15 @@ Plug 'neoclide/coc.nvim', {
 " vim-closetag
 Plug 'alvan/vim-closetag'
 
+" vim-prettier
+Plug 'prettier/vim-prettier', {
+    \ 'do': 'npm install',
+    \ 'for': [
+        \ 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql',
+        \ 'markdown', 'vue', 'yaml', 'html'
+        \ ]
+    \ }
+
 call plug#end()
 
 " built-in vim configs

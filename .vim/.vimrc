@@ -146,6 +146,16 @@ au BufRead,BufNewFile .clang-tidy set filetype=yaml
 au BufRead,BufNewFile .clang-format set filetype=yaml
 
 "##############################################################################"
+" coc.nvim                                                                     "
+"##############################################################################"
+
+" coc-pairs
+" insert indented newline afte <CR> next to opening pair
+inoremap <silent><expr> <cr> pumvisible()
+    \ ? coc#_select_confirm()
+    \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+"##############################################################################"
 " vim-closetag                                                                 "
 "##############################################################################"
 

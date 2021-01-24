@@ -74,6 +74,9 @@ colorscheme gruvbox
 
 " map leader
 let mapleader = '\'
+
+" enable doxygen
+let g:load_doxygen_syntax=1
  
 "##############################################################################"
 " ycm                                                                          "

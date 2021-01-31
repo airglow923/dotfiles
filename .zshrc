@@ -131,6 +131,9 @@ jq-inplace() {
 }
 
 # enable glob syntax
+setopt extended_glob
+
+# print error if pattern not found
 setopt nomatch
 
 export TERM="xterm-256color"

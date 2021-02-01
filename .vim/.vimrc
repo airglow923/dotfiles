@@ -150,11 +150,20 @@ au BufRead,BufNewFile .clang-format set filetype=yaml
 " coc.nvim                                                                     "
 "##############################################################################"
 
+let g:coc_global_extensions = [
+  \ 'coc-pairs',
+  \ 'coc-eslint',
+  \ 'coc-prettier'
+  \ ]
+
 " coc-pairs
 " insert indented newline afte <CR> next to opening pair
 inoremap <silent><expr> <cr> pumvisible()
     \ ? coc#_select_confirm()
     \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 "##############################################################################"
 " vim-closetag                                                                 "

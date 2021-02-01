@@ -1,3 +1,17 @@
 {
-  "suggest.autoTrigger": "none"
+  "suggest.autoTrigger": "none",
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "css",
+    "json",
+    "markdown"
+  ]
 }

@@ -36,6 +36,7 @@ Plug 'alvan/vim-closetag'
 "     \ 'do': 'npm install'
 "     \ }
 
+Plug 'junegunn/seoul256.vim'
 
 call plug#end()
 
@@ -66,9 +67,6 @@ set nu rnu
 
 " copy without line numbers
 se mouse+=a
-
-" colorscheme
-colorscheme gruvbox
 
 " map leader
 let mapleader = '\'
@@ -209,3 +207,10 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 "
 let g:closetag_close_shortcut = '<leader>>'
+
+"##############################################################################"
+" seoul256                                                                     "
+"##############################################################################"
+
+let g:seoul256_background = 233
+colo seoul256

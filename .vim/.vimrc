@@ -31,13 +31,11 @@ Plug 'neoclide/coc.nvim', {
 Plug 'alvan/vim-closetag'
 
 " vim-prettier
-Plug 'prettier/vim-prettier', {
-    \ 'do': 'npm install',
-    \ 'for': [
-        \ 'javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql',
-        \ 'markdown', 'vue', 'yaml', 'html'
-        \ ]
-    \ }
+" disabled due to coc-prettier
+" Plug 'prettier/vim-prettier', {
+"     \ 'do': 'npm install'
+"     \ }
+
 
 call plug#end()
 

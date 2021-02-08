@@ -38,6 +38,9 @@ Plug 'alvan/vim-closetag'
 
 Plug 'junegunn/seoul256.vim'
 
+" powershell plugin
+Plug 'pprovost/vim-ps1'
+
 call plug#end()
 
 " built-in vim configs

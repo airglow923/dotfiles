@@ -65,7 +65,7 @@ set background=dark
 
 " absolute line number, relative line numbers
 " aka hybrid line numbers
-set number relativenumber
+" set number relativenumber
 set nu rnu
 
 " copy without line numbers

@@ -7,7 +7,9 @@ Plug 'ycm-core/YouCompleteMe', {'do': './install.py --all --clangd-completer'}
 Plug 'vim-airline/vim-airline'
 
 " NERDTree
-Plug 'preservim/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'preservim/nerdtree' |
+    \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+    \ Plug 'ryanoasis/vim-devicons'
 
 " colorscheme gruvbox
 Plug 'morhetz/gruvbox'
@@ -24,7 +26,7 @@ Plug 'rhysd/vim-clang-format'
 
 " coc.nvim
 Plug 'neoclide/coc.nvim', {
-    \   'branch': 'release', 'do': 'yarm install --frozen-lockfile'
+    \ 'branch': 'release', 'do': 'yarm install --frozen-lockfile'
     \ }
 
 " vim-closetag
@@ -38,13 +40,21 @@ Plug 'alvan/vim-closetag'
 
 Plug 'junegunn/seoul256.vim'
 
-" powershell plugin
-Plug 'pprovost/vim-ps1'
+" powershell syntax highlightinh
+Plug 'pprovost/vim-ps1', {'for': 'ps1'}
+
+" rust syntax highlighting
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
 " built-in vim configs
-syntax on
+if !exists('g:syntax_on')
+  syntax enable
+endif
+
 filetype plugin indent on
 
 set autoindent
@@ -97,9 +107,26 @@ nnoremap <A-CR> :YcmCompleter FixIt<CR>
 " nerdtree                                                                     "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
+
+" Start NERDTree when Vim is started without file arguments but put cursr in
+" another window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') |
+    \ NERDTree | wincmd p | endif
+
+" close vim when only NERDTree pane remains
+autocmd BufEnter * if tabpagenr('$') == 1
+    \ && winnr('$') == 1
+    \ && exists('b:NERDTree')
+    \ && b:NERDTree.isTabTree() |
+        \ quit | endif
 
 map <C-n> :NERDTreeToggle<cr>
 noremap <leader>nb :NERDTreeFromBookmark<Space>

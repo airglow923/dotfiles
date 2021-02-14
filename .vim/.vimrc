@@ -108,7 +108,7 @@ nnoremap <A-CR> :YcmCompleter FixIt<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let NERDTreeShowHidden = 1
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 2
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1

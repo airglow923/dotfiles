@@ -86,6 +86,12 @@ let mapleader = '\'
 
 " enable doxygen
 let g:load_doxygen_syntax=1
+"
+" extensions for C++ file type
+au BufRead,BufNewFile *.tpp set filetype=cpp
+
+" extensions for sh file type
+au BufRead,BufNewFile .env* set filetype=sh
  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ycm                                                                          "
@@ -166,9 +172,6 @@ if executable(s:clip)
           \ call system(s:clip, @0) | endif
   augroup END
 endif
-
-" extensions C++ file type
-au BufRead,BufNewFile *.tpp set filetype=cpp
 
 " add .clang-tidy as yml
 au BufRead,BufNewFile .clang-tidy set filetype=yaml

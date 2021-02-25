@@ -48,6 +48,9 @@ Plug 'rust-lang/rust.vim', {'for': 'rust'}
 
 Plug 'tpope/vim-fugitive'
 
+" toml syntax highlighting
+Plug 'cespare/vim-toml'
+
 call plug#end()
 
 " built-in vim configs

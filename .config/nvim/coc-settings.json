@@ -1,5 +1,6 @@
 {
   "suggest.autoTrigger": "none",
+  "eslint.packageManager": "yarn",
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": [
     "javascript",

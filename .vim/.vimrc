@@ -212,6 +212,9 @@ inoremap <silent><expr> <cr> pumvisible()
 " coc-prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" rename files
+nmap <leader>rn <Plug>(coc-rename)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-closetag                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -83,6 +83,9 @@ set background=dark
 " set number relativenumber
 set nu rnu
 
+" spell check
+set spell spelllang=en_us
+
 " copy without line numbers
 se mouse+=a
 

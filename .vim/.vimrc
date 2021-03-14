@@ -59,6 +59,9 @@ Plug 'tpope/vim-fugitive'
 " toml syntax highlighting
 Plug 'cespare/vim-toml'
 
+" jsdoc syntax hightlighting
+Plug 'othree/jsdoc-syntax.vim', {'for': ['javascript', 'typescript']}
+
 call plug#end()
 
 " built-in vim configs

@@ -19,8 +19,12 @@ Plug 'preservim/nerdtree' |
     \ Plug 'Xuyuanp/nerdtree-git-plugin' |
     \ Plug 'ryanoasis/vim-devicons'
 
-" colorscheme gruvbox
+" colorschemes
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
+Plug 'romainl/flattened'
+Plug 'lifepillar/vim-solarized8'
+Plug 'sainnhe/sonokai'
 
 " auto closing brackets, parentheses, qutoes
 " disabled due to errors
@@ -45,8 +49,6 @@ Plug 'alvan/vim-closetag'
 " Plug 'prettier/vim-prettier', {
 "     \ 'do': 'npm install'
 "     \ }
-
-Plug 'junegunn/seoul256.vim'
 
 " powershell syntax highlightinh
 Plug 'pprovost/vim-ps1', {'for': 'ps1'}
@@ -93,7 +95,8 @@ set background=dark
 set nu rnu
 
 " spell check
-set spell spelllang=en_us
+" disabled due to lack of functionality
+" set spell spelllang=en_us
 
 " copy without line numbers
 se mouse+=a
@@ -125,6 +128,9 @@ nnoremap <F12> :YcmCompleter GoToDefinition<CR>
 nnoremap <F36> :YcmCompleter GoToDeclaration<CR>
 
 nnoremap <A-CR> :YcmCompleter FixIt<CR>
+
+" disable due to unstability
+" source ~/git/lsp-examples/vimrc.generated
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree                                                                     "
@@ -279,4 +285,11 @@ let g:closetag_close_shortcut = '<leader>>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:seoul256_background = 233
-colo seoul256
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" sonokai                                                                      "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:sonokai_style = 'atlantis'
+
+" selected colorscheme
+colo solarized8_high

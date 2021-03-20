@@ -87,7 +87,13 @@ set showcmd
 set colorcolumn=80,100,120
 
 " background theme
+if $TERM =~ '256color'
+  set t_ut=
+endif
+
+set t_Co=256
 set background=dark
+set termguicolors
 
 " absolute line number, relative line numbers
 " aka hybrid line numbers

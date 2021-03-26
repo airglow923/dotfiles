@@ -64,6 +64,9 @@ Plug 'cespare/vim-toml'
 " jsdoc syntax hightlighting
 Plug 'othree/jsdoc-syntax.vim', {'for': ['javascript', 'typescript']}
 
+" jsonc syntax highlighting
+Plug 'neoclide/jsonc.vim'
+
 call plug#end()
 
 " built-in vim configs

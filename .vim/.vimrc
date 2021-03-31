@@ -67,6 +67,9 @@ Plug 'othree/jsdoc-syntax.vim', {'for': ['javascript', 'typescript']}
 " jsonc syntax highlighting
 Plug 'neoclide/jsonc.vim'
 
+" CSS color preview
+Plug 'ap/vim-css-color'
+
 call plug#end()
 
 " built-in vim configs
@@ -115,12 +118,36 @@ let mapleader = '\'
 
 " enable doxygen
 let g:load_doxygen_syntax=1
-"
+
+" detect WSL
+" unused
+function IsWSL()
+  let is_wsl = 0
+  if !empty(system("grep -F -i 'microsoft' '/proc/version' 2>/dev/null"))
+    let is_wsl = 1
+  endif
+  return is_wsl
+endfunction
+
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'
+if executable(s:clip)
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * if v:event.operator ==# 'y' |
+          \ call system(s:clip, @0) | endif
+  augroup END
+endif
+
 " extensions for C++ file type
 au BufRead,BufNewFile *.tpp set filetype=cpp
 
 " extensions for sh file type
 au BufRead,BufNewFile .env* set filetype=sh
+
+" add .clang-tidy as yml
+au BufRead,BufNewFile .clang-tidy set filetype=yaml
+au BufRead,BufNewFile .clang-format set filetype=yaml
  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ycm                                                                          "
@@ -196,31 +223,10 @@ map <C-_> <plug>NERDCommenterToggle
 " clang-format                                                                 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 1
+
 map <leader>fmt :ClangFormat<cr>
-
-" detect WSL
-" unused
-function IsWSL()
-  let is_wsl = 0
-  if !empty(system("grep -F -i 'microsoft' '/proc/version' 2>/dev/null"))
-    let is_wsl = 1
-  endif
-  return is_wsl
-endfunction
-
-" WSL yank support
-let s:clip = '/mnt/c/Windows/System32/clip.exe'
-if executable(s:clip)
-  augroup WSLYank
-    autocmd!
-    autocmd TextYankPost * if v:event.operator ==# 'y' |
-          \ call system(s:clip, @0) | endif
-  augroup END
-endif
-
-" add .clang-tidy as yml
-au BufRead,BufNewFile .clang-tidy set filetype=yaml
-au BufRead,BufNewFile .clang-format set filetype=yaml
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim                                                                     "

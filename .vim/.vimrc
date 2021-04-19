@@ -34,7 +34,7 @@ Plug 'sainnhe/sonokai'
 Plug 'preservim/nerdcommenter'
 
 " clang-format
-Plug 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format', {'for': ['c', 'cpp']}
 
 " coc.nvim
 Plug 'neoclide/coc.nvim', {
@@ -76,6 +76,8 @@ call plug#end()
 if !exists('g:syntax_on')
   syntax enable
 endif
+
+set runtimepath+=~/.vim/plugged/YouCompleteMe/
 
 filetype plugin indent on
 
@@ -156,7 +158,10 @@ au BufRead,BufNewFile .clang-format set filetype=yaml
 let g:ycm_extra_conf_globlist = ['~/Programming/*', '!~/*']
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_autoclose_preview_window_after_insertion = 1
-" let g:ycm_clangd_binary_path='clangd'
+
+" clangd
+let g:ycm_clangd_uses_ycmd_caching = 0
+let g:ycm_clangd_binary_path = exepath("clangd")
 
 nnoremap <F12> :YcmCompleter GoToDefinition<CR>
 
@@ -226,7 +231,7 @@ map <C-_> <plug>NERDCommenterToggle
 let g:clang_format#detect_style_file = 1
 let g:clang_format#auto_format = 1
 
-map <leader>fmt :ClangFormat<cr>
+autocmd FileType c,cpp map <leader>fmt :ClangFormat<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " coc.nvim                                                                     "

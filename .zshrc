@@ -173,3 +173,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # deno
 export DENO_INSTALL="/home/hyundeok/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+# local binary
+export PATH="/home/hyundeok/.local/bin:$PATH"

@@ -312,7 +312,7 @@ let g:python3_host_prog=expand('/usr/bin/python3')
 " vim-autoformat                                                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:formatters_python = ['autopep8']
+let g:formatters_python = ['black']
 
 noremap <F3> :Autoformat<CR>
 

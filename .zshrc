@@ -148,7 +148,7 @@ unalias -m '*'
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if which rbenv > /dev/null; then
-    eval "$(rbenv init - --no-rehash)"
+  eval "$(rbenv init - --no-rehash)"
 fi
 
 # alias
@@ -163,7 +163,7 @@ export LESS=" -R "
 export GPG_TTY=$TTY
 
 # Intel compiler
-# source /opt/intel/oneapi/setvars.sh
+source /opt/intel/oneapi/setvars.sh
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

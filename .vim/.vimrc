@@ -8,16 +8,16 @@ call plug#begin('~/.vim/plugged')
 
 " autocompletion
 Plug 'ycm-core/YouCompleteMe', {
-      \ 'do': './install.py --clangd-completer --cs-completer --go-completer --rust-completer --java-completer --ts-completer'
-      \ }
+    \ 'do': './install.py --clangd-completer --cs-completer --go-completer --rust-completer --java-completer --ts-completer'
+    \ }
 
 " airline equivalent to powerline
 Plug 'vim-airline/vim-airline'
 
 " NERDTree
 Plug 'preservim/nerdtree' |
-      \ Plug 'Xuyuanp/nerdtree-git-plugin' |
-      \ Plug 'ryanoasis/vim-devicons'
+    \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+    \ Plug 'ryanoasis/vim-devicons'
 
 " colorschemes
 Plug 'morhetz/gruvbox'
@@ -35,8 +35,8 @@ Plug 'preservim/nerdcommenter'
 
 " coc.nvim
 Plug 'neoclide/coc.nvim', {
-      \ 'branch': 'release', 'do': 'yarm install --frozen-lockfile'
-      \ }
+    \ 'branch': 'release', 'do': 'yarm install --frozen-lockfile'
+    \ }
 
 " vim-closetag
 Plug 'alvan/vim-closetag'
@@ -49,6 +49,9 @@ Plug 'alvan/vim-closetag'
 
 " vim-autoformat
 Plug 'Chiel92/vim-autoformat'
+
+" pylint
+Plug 'vim-scripts/pylint.vim'
 
 " powershell syntax highlightinh
 Plug 'pprovost/vim-ps1', {'for': 'ps1'}
@@ -137,7 +140,7 @@ if executable(s:clip)
   augroup WSLYank
     autocmd!
     autocmd TextYankPost * if v:event.operator ==# 'y' |
-          \ call system(s:clip, @0) | endif
+        \ call system(s:clip, @0) | endif
   augroup END
 endif
 
@@ -189,27 +192,27 @@ let g:NERDTreeWinSize=35
 " another window.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter *
-      \ if argc() == 0 && !exists('s:std_in') |
+    \ if argc() == 0 && !exists('s:std_in') |
       \ NERDTree | wincmd p |
-      \ endif
+    \ endif
 
 " close vim when only NERDTree pane remains
 autocmd BufEnter *
-      \ if tabpagenr('$') == 1
-      \ && winnr('$') == 1
-      \ && exists('b:NERDTree')
-      \ && b:NERDTree.isTabTree() |
+    \ if tabpagenr('$') == 1
+        \ && winnr('$') == 1
+        \ && exists('b:NERDTree')
+        \ && b:NERDTree.isTabTree() |
       \ quit |
-      \ endif
+    \ endif
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter *
-      \ if bufname('#') =~ 'NERD_tree_\d\+'
-      \ && bufname('%') !~ 'NERD_tree_\d\+'
-      \ && winnr('$') > 1 |
+    \ if bufname('#') =~ 'NERD_tree_\d\+'
+        \ && bufname('%') !~ 'NERD_tree_\d\+'
+        \ && winnr('$') > 1 |
       \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" |
       \ execute 'buffer'.buf |
-      \ endif
+    \ endif
 
 map <C-n> :NERDTreeToggle<cr>
 noremap <leader>nb :NERDTreeFromBookmark<Space>
@@ -229,16 +232,16 @@ map <C-_> <plug>NERDCommenterToggle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let g:coc_global_extensions = [
-      \ 'coc-pairs',
-      \ 'coc-eslint',
-      \ 'coc-prettier'
-      \ ]
+    \ 'coc-pairs',
+    \ 'coc-eslint',
+    \ 'coc-prettier'
+    \ ]
 
 " coc-pairs
 " insert indented newline afte <CR> next to opening pair
 inoremap <silent><expr> <cr> pumvisible()
-      \ ? coc#_select_confirm()
-      \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+    \ ? coc#_select_confirm()
+    \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " coc-prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -279,9 +282,9 @@ let g:closetag_emptyTags_caseSensitive = 1
 " Disables auto-close if not in a "valid" region (based on filetype)
 "
 let g:closetag_regions = {
-      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-      \ 'javascript.jsx': 'jsxRegion',
-      \ }
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
 
 " Shortcut for closing tags, default is '>'
 "
@@ -311,6 +314,10 @@ let g:python3_host_prog=expand('/usr/bin/python3')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-autoformat                                                               "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
 
 let g:formatters_python = ['black']
 

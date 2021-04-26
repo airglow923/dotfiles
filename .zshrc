@@ -163,7 +163,8 @@ export LESS=" -R "
 export GPG_TTY=$TTY
 
 # Intel compiler
-source /opt/intel/oneapi/setvars.sh
+# Disabled as it shadows other existing binaries such as python and clang
+# source /opt/intel/oneapi/setvars.sh
 
 # nvm
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

@@ -177,3 +177,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 
 # local binary
 export PATH="/home/hyundeok/.local/bin:$PATH"
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"

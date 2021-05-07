@@ -181,3 +181,7 @@ export PATH="/home/hyundeok/.local/bin:$PATH"
 export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
+
+# Hyundeok Park's aliases
+# use this only when a build tool used is make
+alias cbuild='cmake --build . -j $((`nproc` + 1))'

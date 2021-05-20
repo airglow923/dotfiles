@@ -73,6 +73,10 @@ Plug 'neoclide/jsonc.vim'
 " CSS color preview
 Plug 'ap/vim-css-color'
 
+" enable syntax highlighting for code blacks in Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 call plug#end()
 
 " built-in vim configs

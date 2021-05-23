@@ -1,0 +1,22 @@
+{
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "always",
+        "mjs": "always",
+        "jsx": "always",
+        "ts": "always",
+        "tsx": "always"
+      }
+    ],
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ]
+  },
+}

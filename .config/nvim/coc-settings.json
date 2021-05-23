@@ -9,6 +9,12 @@
     "typescript",
     "typescriptreact"
   ],
+  "eslint.options": {
+    "configFile": "~/.eslintrc.json"
+  },
+  "prettier.eslintIntegration": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",

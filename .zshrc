@@ -130,6 +130,10 @@ jq-inplace() {
   $SCRIPTS/jq-inplace.sh "$@"
 }
 
+to-latex-uri() {
+  $SCRIPTS/to-latex-uri.sh "$@"
+}
+
 # enable glob syntax
 setopt extended_glob
 
@@ -178,8 +182,8 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 # local binary
 export PATH="/home/hyundeok/.local/bin:$PATH"
 
+# wasm
 export WASMTIME_HOME="$HOME/.wasmtime"
-
 export PATH="$WASMTIME_HOME/bin:$PATH"
 
 # Hyundeok Park's aliases

@@ -1,15 +1,23 @@
 const latex = Deno.args[0];
 
-async function writeStdStream(str, stream = Deno.stdout) {
-  return stream.write(new TextEncoder().encode(str));
-}
-
 if (latex === undefined || typeof latex !== 'string') {
   const errMsg = 'Invalid argument';
   writeStdStream(errMsg, Deno.stderr);
   Deno.exit(1);
 }
 
-const encodedLatex = encodeURI(latex);
+async function writeStdStream(str, stream = Deno.stdout) {
+  return stream.write(new TextEncoder().encode(str));
+}
 
-writeStdStream(encodedLatex + '\n');
+function asciiToUTF(str) {
+  str = str.replace(/\(/g, '%28');
+  str = str.replace(/\)/g, '%29');
+
+  return str;
+}
+
+const encodedLatex = encodeURI(latex);
+const normalizedLatex = asciiToUTF(encodedLatex);
+
+writeStdStream(normalizedLatex + '\n');

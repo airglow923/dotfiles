@@ -6,6 +6,14 @@ if (latex === undefined || typeof latex !== 'string') {
   process.exit(1);
 }
 
-const encodedLatex = encodeURI(latex);
+function asciiToUTF(str) {
+  str = str.replace(/\(/g, '%28');
+  str = str.replace(/\)/g, '%29');
 
-process.stdout.write(encodedLatex + '\n');
+  return str;
+}
+
+const encodedLatex = encodeURI(latex);
+const normalizedLatex = asciiToUTF(encodedLatex);
+
+process.stdout.write(normalizedLatex + '\n');

@@ -1,4 +1,5 @@
 const latex = process.argv[2];
+const latexRenderer = 'https://latex.codecogs.com/svg.latex?';
 
 if (latex === undefined || typeof latex !== 'string') {
   const errMsg = 'Invalid argument';
@@ -16,4 +17,4 @@ function asciiToUTF(str) {
 const encodedLatex = encodeURI(latex);
 const normalizedLatex = asciiToUTF(encodedLatex);
 
-process.stdout.write(normalizedLatex + '\n');
+writeStdStream(latexRenderer + normalizedLatex + '\n');

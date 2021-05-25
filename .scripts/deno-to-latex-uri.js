@@ -1,4 +1,5 @@
 const latex = Deno.args[0];
+const latexRenderer = 'https://latex.codecogs.com/svg.latex?';
 
 if (latex === undefined || typeof latex !== 'string') {
   const errMsg = 'Invalid argument';
@@ -20,4 +21,4 @@ function asciiToUTF(str) {
 const encodedLatex = encodeURI(latex);
 const normalizedLatex = asciiToUTF(encodedLatex);
 
-writeStdStream(normalizedLatex + '\n');
+writeStdStream(latexRenderer + normalizedLatex + '\n');

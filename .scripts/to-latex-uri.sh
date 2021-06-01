@@ -1,5 +1,6 @@
 #!/bin/sh
 
+CURRENT_DIR=$(dirname $0)
 COMMAND=""
 
 usage() {
@@ -17,9 +18,9 @@ if [ "$#" -eq 0 ]; then
 fi
 
 if command -v deno > /dev/null; then
-  COMMAND="deno run deno-to-latex-uri.js"
+  COMMAND="deno run $CURRENT_DIR/deno-to-latex-uri.js"
 elif command -v node > /dev/null; then
-  COMMAND="node node-to-latex-uri.js"
+  COMMAND="node $CURRENT_DIR/node-to-latex-uri.js"
 else
   usage "No JavaScript runtime found"
   exit 1;

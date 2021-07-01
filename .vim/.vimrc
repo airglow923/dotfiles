@@ -26,7 +26,7 @@ Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
 Plug 'sainnhe/sonokai'
 
-" auto closing brackets, parentheses, qutoes
+" auto closing brackets, parentheses, quotes
 " disabled due to errors
 " Plugin 'jiangmiao/auto-pairs'
 
@@ -35,11 +35,14 @@ Plug 'preservim/nerdcommenter'
 
 " coc.nvim
 Plug 'neoclide/coc.nvim', {
-    \ 'branch': 'release', 'do': 'yarm install --frozen-lockfile'
+    \ 'branch': 'release', 'do': 'yarn install --frozen-lockfile'
     \ }
 
 " vim-closetag
 Plug 'alvan/vim-closetag'
+
+" enclose selected text in pairs
+Plug 'tpope/vim-surround'
 
 " vim-prettier
 " disabled due to coc-prettier

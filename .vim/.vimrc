@@ -6,10 +6,11 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" autocompletion
-Plug 'ycm-core/YouCompleteMe', {
-    \ 'do': './install.py --clangd-completer --cs-completer --go-completer --rust-completer --java-completer --ts-completer'
+" autocompletion and other plugins
+Plug 'neoclide/coc.nvim', {
+    \ 'branch': 'release', 'do': 'yarn install --frozen-lockfile'
     \ }
+
 
 " airline equivalent to powerline
 Plug 'vim-airline/vim-airline'
@@ -20,11 +21,7 @@ Plug 'preservim/nerdtree' |
     \ Plug 'ryanoasis/vim-devicons'
 
 " colorschemes
-Plug 'morhetz/gruvbox'
-Plug 'junegunn/seoul256.vim'
-Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
-Plug 'sainnhe/sonokai'
 
 " auto closing brackets, parentheses, quotes
 " disabled due to errors
@@ -32,11 +29,6 @@ Plug 'sainnhe/sonokai'
 
 " block commenting
 Plug 'preservim/nerdcommenter'
-
-" coc.nvim
-Plug 'neoclide/coc.nvim', {
-    \ 'branch': 'release', 'do': 'yarn install --frozen-lockfile'
-    \ }
 
 " vim-closetag
 Plug 'alvan/vim-closetag'
@@ -160,32 +152,6 @@ au BufRead,BufNewFile .env* set filetype=sh
 " add .clang-tidy as yml
 au BufRead,BufNewFile .clang-tidy set filetype=yaml
 au BufRead,BufNewFile .clang-format set filetype=yaml
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ycm                                                                          "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:ycm_extra_conf_globlist = ['~/Programming/*', '!~/*']
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_insertion = 1
-
-let g:ycm_key_list_select_completion = ['<TAB>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>']
-let g:ycm_key_list_stop_completion = ['<C-y>', '<UP>', '<DOWN>']
-
-" clangd
-let g:ycm_clangd_uses_ycmd_caching = 0
-let g:ycm_clangd_binary_path = exepath("clangd")
-
-nnoremap <F12> :YcmCompleter GoToDefinition<CR>
-
-" somehow <F36> turns out to be ctrl + F12
-nnoremap <F36> :YcmCompleter GoToDeclaration<CR>
-
-nnoremap <A-CR> :YcmCompleter FixIt<CR>
-
-" disable due to unstability
-" source ~/git/lsp-examples/vimrc.generated
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree                                                                     "

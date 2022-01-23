@@ -12,14 +12,13 @@
   "eslint.options": {
     "configFile": "~/.eslintrc.json"
   },
-  "prettier.eslintIntegration": true,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "all",
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
     "css",
     "json",
     "html"
-  ]
+  ],
+  "coc.preferences.jumpCommand": "CocHyundeokAutoSplit",
+  "clangd.semanticHighlighting": true
 }

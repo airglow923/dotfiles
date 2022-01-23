@@ -21,3 +21,5 @@
 	program = gpg
 [rebase]
 	autoStash = true
+[credential]
+    helper = manager

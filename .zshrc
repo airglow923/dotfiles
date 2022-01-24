@@ -75,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast zsh-syntax-highlighting)
+plugins=(git gitfast zsh-syntax-highlighting docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -140,8 +140,6 @@ setopt extended_glob
 # print error if pattern not found
 setopt nomatch
 
-export TERM="xterm-256color"
-
 # add npm global to PATH
 export PATH=~/.npm-global/bin:$PATH
 
@@ -162,9 +160,6 @@ alias john='~/git/john/run/john'
 # syntax highlighting for less
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
-
-# gpg
-export GPG_TTY=$TTY
 
 # Intel compiler
 # Disabled as it shadows other existing binaries such as python and clang
@@ -189,28 +184,11 @@ export PATH="$WASMTIME_HOME/bin:$PATH"
 # Hyundeok Park's aliases
 # use this only when a build tool used is make
 alias cbuild='cmake --build . -j $((`nproc` + 1))'
+alias git-verbose='GIT_TRACE=1 GIT_CURL_VERSION=1 GIT_SSH_COMMAND="ssh -vvv" git'
+alias callgrind='valgrind --tool=callgrind'
 
-################################################################################
-# https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
-env=~/.ssh/agent.env
+# WSL-specific
+## X11
+export DISPLAY="$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0"
+export LIBGL_ALWAYS_INDIRECT=1
 
-agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
-
-agent_start () {
-    (umask 077; ssh-agent >| "$env")
-    . "$env" >| /dev/null ; }
-
-agent_load_env
-
-# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
-agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
-
-if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
-    agent_start
-    ssh-add
-elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
-    ssh-add
-fi
-
-unset env
-################################################################################

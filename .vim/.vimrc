@@ -20,12 +20,12 @@ Plug 'preservim/nerdtree' |
     \ Plug 'Xuyuanp/nerdtree-git-plugin' |
     \ Plug 'ryanoasis/vim-devicons'
 
-" colorschemes
-Plug 'lifepillar/vim-solarized8'
+" colorscheme
+Plug 'sainnhe/everforest'
 
-" auto closing brackets, parentheses, quotes
-" disabled due to errors
-" Plugin 'jiangmiao/auto-pairs'
+" Syntax highlighting
+" Plug 'sheerun/vim-polyglot'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " block commenting
 Plug 'preservim/nerdcommenter'
@@ -47,20 +47,8 @@ Plug 'Chiel92/vim-autoformat'
 " pylint
 Plug 'vim-scripts/pylint.vim'
 
-" powershell syntax highlighting
-Plug 'pprovost/vim-ps1', {'for': 'ps1'}
-
-" rust syntax highlighting
-Plug 'rust-lang/rust.vim', {'for': 'rust'}
-
-" toml syntax highlighting
-Plug 'cespare/vim-toml'
-
 " jsdoc syntax hightlighting
 Plug 'othree/jsdoc-syntax.vim', {'for': ['javascript', 'typescript']}
-
-" jsonc syntax highlighting
-Plug 'neoclide/jsonc.vim'
 
 " CSS color preview
 Plug 'ap/vim-css-color'
@@ -99,6 +87,12 @@ endif
 set t_Co=256
 set background=dark
 set termguicolors
+
+" color scheme
+let g:everforest_background = 'soft'
+let g:everforest_enable_italic = 1
+
+colo everforest
 
 " absolute line number, relative line numbers
 " aka hybrid line numbers
@@ -399,21 +393,6 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 "
 " let g:closetag_close_shortcut = '<leader>>'
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" seoul256                                                                     "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:seoul256_background = 233
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" sonokai                                                                      "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-let g:sonokai_style = 'atlantis'
-
-" selected colorscheme
-colo solarized8_high
 
 " nvim
 let g:python3_host_prog=expand('/usr/bin/python3')

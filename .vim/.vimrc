@@ -30,10 +30,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " block commenting
 Plug 'preservim/nerdcommenter'
 
-" vim-closetag
-" replaced by coc-html
-" Plug 'alvan/vim-closetag'
-
 " enclose selected text in pairs
 Plug 'tpope/vim-surround'
 
@@ -75,6 +71,7 @@ set softtabstop=4
 set shiftwidth=4
 set laststatus=2
 set showcmd
+set nofen
 
 " column length indicator
 set colorcolumn=80,100,120
@@ -98,10 +95,6 @@ colo everforest
 " aka hybrid line numbers
 " set number relativenumber
 set nu rnu
-
-" spell check
-" disabled due to lack of functionality
-" set spell spelllang=en_us
 
 " copy without line numbers
 se mouse+=a
@@ -348,54 +341,6 @@ let g:NERDCustomDelimiters = {
   \ }
 
 map <C-_> <plug>NERDCommenterToggle
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-closetag                                                                 "
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-"
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue,*.md'
-
-" filenames like *.xml, *.xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-
-" filetypes like xml, html, xhtml, ...
-" These are the file types where this plugin is enabled.
-"
-let g:closetag_filetypes = 'html,xhtml,phtml,vue,md'
-
-" filetypes like xml, xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
-" integer value [0|1]
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-"
-let g:closetag_emptyTags_caseSensitive = 1
-
-" dict
-" Disables auto-close if not in a "valid" region (based on filetype)
-"
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-
-" Shortcut for closing tags, default is '>'
-"
-let g:closetag_shortcut = '>'
-
-" Add > at current position without closing the current tag, default is ''
-"
-" let g:closetag_close_shortcut = '<leader>>'
-
-" nvim
-let g:python3_host_prog=expand('/usr/bin/python3')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-autoformat                                                               "

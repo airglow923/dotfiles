@@ -187,8 +187,3 @@ alias cbuild='cmake --build . -j $((`nproc` + 1))'
 alias git-verbose='GIT_TRACE=1 GIT_CURL_VERSION=1 GIT_SSH_COMMAND="ssh -vvv" git'
 alias callgrind='valgrind --tool=callgrind'
 alias grep='grep --color=auto'
-
-# WSL-specific
-## X11
-export DISPLAY="$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0"
-export LIBGL_ALWAYS_INDIRECT=1

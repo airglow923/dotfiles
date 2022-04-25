@@ -12,8 +12,7 @@ Plug 'neoclide/coc.nvim', {
     \ }
 
 
-" airline equivalent to powerline
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 " NERDTree
 Plug 'preservim/nerdtree' |
@@ -32,8 +31,6 @@ Plug 'preservim/nerdcommenter'
 
 " enclose selected text in pairs
 Plug 'tpope/vim-surround'
-
-Plug 'tpope/vim-fugitive'
 
 Plug 'airblade/vim-gitgutter'
 
@@ -84,6 +81,9 @@ endif
 set t_Co=256
 set background=dark
 set termguicolors
+
+" zsh is slow
+set shell=/bin/bash
 
 " color scheme
 let g:everforest_background = 'soft'

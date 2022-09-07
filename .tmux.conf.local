@@ -342,6 +342,7 @@ tmux_conf_copy_to_os_clipboard=true
 
 # increase history size
 #set -g history-limit 10000
+set -g history-limit 99999999
 
 # start with mouse mode enabled
 set -g mouse on
@@ -362,7 +363,7 @@ set -g mode-keys vi
 # bind v new-window -c #{pane_current_path} #!important
 
 # move status line to top
-#set -g status-position top
+set -g status-position top
 
 
 # -- tpm -----------------------------------------------------------------------

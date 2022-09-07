@@ -1,3 +1,6 @@
+# tmux default editor
+export EDITOR="nvim"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -75,7 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast zsh-syntax-highlighting docker)
+plugins=(git gitfast zsh-syntax-highlighting docker fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -143,19 +146,12 @@ setopt nomatch
 # add npm global to PATH
 export PATH=~/.npm-global/bin:$PATH
 
-# disable aliases
-unalias -m '*'
-
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if which rbenv > /dev/null; then
   eval "$(rbenv init - --no-rehash)"
 fi
-
-# alias
-alias ls='ls --color=auto'
-alias john='~/git/john/run/john'
 
 # syntax highlighting for less
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
@@ -175,15 +171,34 @@ export DENO_INSTALL="/home/hyundeok/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # local binary
-export PATH="/home/hyundeok/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # wasm
 export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
 
 # Hyundeok Park's aliases
+alias ls='ls --color=auto'
+alias john='~/git/john/run/john'
+
 # use this only when a build tool used is make
 alias cbuild='cmake --build . -j $((`nproc` + 1))'
 alias git-verbose='GIT_TRACE=1 GIT_CURL_VERSION=1 GIT_SSH_COMMAND="ssh -vvv" git'
 alias callgrind='valgrind --tool=callgrind'
 alias grep='grep --color=auto'
+alias s='ssh'
+alias n='nvim'
+
+# Flutter
+export PATH="$PATH:$HOME/.local/flutter/bin"
+
+# lua-language-server
+export PATH="$PATH:$HOME/.local/lua-language-server-3.5.3-linux-x64/bin"
+
+# Vagrant
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+
+# other exports
+export HISTSIZE=99999999
+export SAVEHIST=99999999

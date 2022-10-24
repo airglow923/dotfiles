@@ -108,34 +108,23 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# disable aliases
+unalias -m '*'
+
+# gpg
+export GPG_TTY=$TTY
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+source ~/.keychain/"$(hostname)-sh"
+source ~/.keychain/"$(hostname)-sh-gpg"
 
 # disable directory highlighting on WSL
 export LS_COLORS=$LS_COLORS"ow=1;34:"
 
-# custom scripts
-SCRIPTS=~/.scripts
-
-tmux-kill-unattached() {
-  $SCRIPTS/tmux-kill-unattached.sh "$@"
-}
-
-swap-file() {
-  $SCRIPTS/swap-file.sh "$@"
-}
-
-init-ts-proj() {
-  $SCRIPTS/init-ts-proj.sh "$@"
-}
-
-jq-inplace() {
-  $SCRIPTS/jq-inplace.sh "$@"
-}
-
-to-latex-uri() {
-  $SCRIPTS/to-latex-uri.sh "$@"
-}
+export PATH=~/.scripts:$PATH
 
 # enable glob syntax
 setopt extended_glob
@@ -199,6 +188,10 @@ export PATH="$PATH:$HOME/.local/lua-language-server-3.5.3-linux-x64/bin"
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
+# Go
+export PATH="$PATH:$HOME/go/bin"
+
 # other exports
 export HISTSIZE=99999999
 export SAVEHIST=99999999
+export TERM="screen-256color"

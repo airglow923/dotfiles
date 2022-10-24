@@ -1,0 +1,25 @@
+vim.g.python3_host_prog = "/usr/bin/python3"
+vim.g.loaded_python3_provider = true
+vim.g.loaded_ruby_provider = true
+vim.g.loaded_node_provider = true
+vim.g.loaded_perl_provider = true
+vim.g.load_doxygen_syntax = true
+
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.encoding = "utf-8"
+vim.o.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.laststatus = 2
+vim.o.showcmd = true
+vim.o.foldenable = false
+vim.o.colorcolumn = "80,100,120"
+vim.o.background = "dark"
+vim.o.termguicolors = true
+vim.o.shell = "/bin/bash"
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.mouse = vim.o.mouse .. "a"
+vim.o.clipboard = "unnamedplus"

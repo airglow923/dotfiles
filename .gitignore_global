@@ -6,3 +6,5 @@
 
 # Jet Brains IDE configs
 .idea/
+
+packer_compiled.lua

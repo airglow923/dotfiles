@@ -480,11 +480,4 @@ set-environment -g EDITOR "$EDITOR"
 
 set-option -g repeat-time 100
 
-set -g default-terminal "screen-256color"
-
-if-shell "(( $(echo \"$(tmux -V | awk '{print $2}' | grep -Eo '[+-]?[0-9]+([.][0-9]+)?') >= 3\" | bc -l) ))" {
-    set-option -sa terminal-overrides ",*-256color:RGB"
-} {
-    set-option -ga terminal-overrides ",*-256color:Tc"
-}
-
+set -g default-terminal "tmux-256color"

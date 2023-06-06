@@ -8,6 +8,7 @@ local function load_modules(modules)
   end
 end
 
-local modules = { "custom.vim_builtins", "custom.wsl" }
+local modules = { "custom.vim_builtins", "custom.lsp" }
 
 load_modules(modules)
+

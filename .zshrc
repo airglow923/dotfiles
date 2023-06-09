@@ -1,15 +1,14 @@
-# tmux default editor
 export EDITOR="nvim"
+export GPG_TTY=$TTY
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+
+source ~/.keychain/"$(hostname)-sh"
+source ~/.keychain/"$(hostname)-sh-gpg"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hyundeok/.oh-my-zsh"
@@ -34,7 +33,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -73,12 +72,31 @@ DISABLE_AUTO_TITLE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+autoload -Uz compaudit compinit && compinit
+
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gitfast zsh-syntax-highlighting docker fzf)
+
+# disabled zsh-nvm and docker-compose due to slowness
+plugins=(evalcache zsh-syntax-highlighting npm git gitfast docker fzf)
+
+# for plugin ($plugins); do
+#   timer=$(($(date +%s%N)/1000000))
+#   if [ -f $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh ]; then
+#     source $ZSH_CUSTOM/plugins/$plugin/$plugin.plugin.zsh
+#   elif [ -f $ZSH/plugins/$plugin/$plugin.plugin.zsh ]; then
+#     source $ZSH/plugins/$plugin/$plugin.plugin.zsh
+#   fi
+#   now=$(($(date +%s%N)/1000000))
+#   elapsed=$(($now-$timer))
+#   echo $elapsed":" $plugin
+# done
 
 source $ZSH/oh-my-zsh.sh
 
@@ -111,20 +129,19 @@ source $ZSH/oh-my-zsh.sh
 # disable aliases
 unalias -m '*'
 
-# gpg
-export GPG_TTY=$TTY
+for appimage in ~/appimage/*.appimage; do
+  alias "$(awk -F "." '{print $1}' <<< "$(basename "$appimage")")"="$appimage"
+done
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-source ~/.keychain/"$(hostname)-sh"
-source ~/.keychain/"$(hostname)-sh-gpg"
-
-# disable directory highlighting on WSL
-export LS_COLORS=$LS_COLORS"ow=1;34:"
-
-export PATH=~/.scripts:$PATH
+# Hyundeok Park's aliases
+alias ls='ls --color=auto'
+alias cbuild='cmake --build . -j $((`nproc` + 1))'
+alias git-verbose='GIT_TRACE=1 GIT_CURL_VERSION=1 GIT_SSH_COMMAND="ssh -vvv" git'
+alias callgrind='valgrind --tool=callgrind'
+alias grep='grep --color=auto'
+alias s='ssh'
+alias n='nvim'
+alias curl-safe='curl -sSf --tlsv1.2 --proto '\''=https'\'''
 
 # enable glob syntax
 setopt extended_glob
@@ -132,51 +149,39 @@ setopt extended_glob
 # print error if pattern not found
 setopt nomatch
 
-# add npm global to PATH
-export PATH=~/.npm-global/bin:$PATH
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-if which rbenv > /dev/null; then
-  eval "$(rbenv init - --no-rehash)"
-fi
+# disable directory highlighting on WSL
+export LS_COLORS=$LS_COLORS"ow=1;34:"
 
 # syntax highlighting for less
 export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
-export LESS=" -R "
+export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
+export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\E[1;36m'     # begin blink
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;32m'     # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
-# Intel compiler
-# Disabled as it shadows other existing binaries such as python and clang
-# source /opt/intel/oneapi/setvars.sh
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.scripts:$PATH"
 
-# nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# add npm global to PATH
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 # deno
 export DENO_INSTALL="/home/hyundeok/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-# local binary
-export PATH="$HOME/.local/bin:$PATH"
-
 # wasm
 export WASMTIME_HOME="$HOME/.wasmtime"
 export PATH="$WASMTIME_HOME/bin:$PATH"
-
-# Hyundeok Park's aliases
-alias ls='ls --color=auto'
-alias john='~/git/john/run/john'
-
-# use this only when a build tool used is make
-alias cbuild='cmake --build . -j $((`nproc` + 1))'
-alias git-verbose='GIT_TRACE=1 GIT_CURL_VERSION=1 GIT_SSH_COMMAND="ssh -vvv" git'
-alias callgrind='valgrind --tool=callgrind'
-alias grep='grep --color=auto'
-alias s='ssh'
-alias n='nvim'
 
 # Flutter
 export PATH="$PATH:$HOME/.local/flutter/bin"
@@ -194,4 +199,16 @@ export PATH="$PATH:$HOME/go/bin"
 # other exports
 export HISTSIZE=99999999
 export SAVEHIST=99999999
-export TERM="screen-256color"
+[[ $TMUX != "" ]] && export TERM="xterm-256color"
+
+# disabled due to slowness
+# _evalcache rbenv init -
+
+# disabled due to slowness
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Intel compiler
+# Disabled as it shadows other existing binaries such as python and clang
+# source /opt/intel/oneapi/setvars.sh

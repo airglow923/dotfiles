@@ -11,4 +11,3 @@ end
 local modules = { "custom.vim_builtins", "custom.lsp" }
 
 load_modules(modules)
-

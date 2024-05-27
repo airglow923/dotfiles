@@ -19,7 +19,8 @@ local options = {
     lua = { "stylua" },
   },
   format_on_save = {
-    timeout_ms = 2000,
+    -- default value was 500, but ktlint behaves way too slow
+    timeout_ms = 3000,
     lsp_fallback = true,
   },
 }

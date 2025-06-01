@@ -171,9 +171,11 @@ export CARGO_TARGET_I686_LINUX_ANDROID_LINKER="$NDK_TOOLCHAIN_DIR/i686-linux-and
 export CARGO_TARGET_X86_64_LINUX_ANDROID_LINKER="$NDK_TOOLCHAIN_DIR/x86_64-linux-android26-clang"
 export GRADLE_USER_HOME="$HOME/.gradle"
 
+setopt NULL_GLOB
 for appimage in ~/appimage/*.appimage; do
 	alias "$(awk -F "." '{print $1}' <<<"$(basename "$appimage")")"="$appimage"
 done
+unsetopt NULL_GLOB
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.scripts:$PATH"
@@ -204,7 +206,7 @@ export PATH="$PATH:$HOME/go/bin"
 
 export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
 
-. "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
 
 export HISTSIZE=99999999
 export SAVEHIST=99999999

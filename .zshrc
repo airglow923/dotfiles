@@ -2,6 +2,10 @@
 
 export EDITOR="nvim"
 export GPG_TTY=$TTY
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.scripts:$PATH"
+
+execute-keychain
 
 source ~/.keychain/"$(hostname)-sh"
 source ~/.keychain/"$(hostname)-sh-gpg"
@@ -178,9 +182,6 @@ for appimage in ~/appimage/*.appimage; do
 	alias "$(awk -F "." '{print $1}' <<<"$(basename "$appimage")")"="$appimage"
 done
 unsetopt NULL_GLOB
-
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.scripts:$PATH"
 
 # add npm global to PATH
 export PATH="$HOME/.npm-global/bin:$PATH"

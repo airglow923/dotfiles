@@ -123,9 +123,11 @@ alias cbuild='cmake --build . -j $((`nproc` + 1))'
 alias git-verbose='GIT_TRACE=1 GIT_CURL_VERSION=1 GIT_SSH_COMMAND="ssh -vvv" git'
 alias callgrind='valgrind --tool=callgrind'
 alias grep='grep --color=auto'
+alias l='less'
 alias s='ssh'
 alias n='nvim'
 alias t='tmux'
+alias f='fdfind'
 alias curl-safe='curl -sSf --tlsv1.2 --proto '\''=https'\'''
 alias rcopy='rsync -a --append-verify'
 alias gradlew='JAVA_HOME=/root/.sdkman/candidates/java/current bash ./gradlew'
@@ -202,10 +204,9 @@ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
 # Go
-export PATH="$PATH:$HOME/go/bin"
+[[ -s "/home/hyundeok/.gvm/scripts/gvm" ]] && source "/home/hyundeok/.gvm/scripts/gvm"
 
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
-
+# Rust
 source "$HOME/.cargo/env"
 
 export HISTSIZE=99999999

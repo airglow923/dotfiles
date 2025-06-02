@@ -41,7 +41,7 @@ return {
     "lua_ls", -- lua-language-server
     "pyright", -- pyright
     "rust_analyzer", -- rust-analyzer
-    "tsserver", -- tsserver
+    "ts_ls", -- ts_ls
   },
   treesitter = {
     "bash",

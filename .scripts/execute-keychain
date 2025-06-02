@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -Eeuo pipefail
+
+# allow quitting keychain if I'm too lazy to enter passwords
+# then continue the rest of code to initialize shell
+trap "" INT
+
+eval $(
+    keychain \
+        --nogui \
+        --eval \
+        --agents "ssh,gpg" \
+        --quick \
+        "$HOME/.ssh/id_ed25519" \
+        "$HOME/.ssh/id_ed25519.github" \
+        2FBCC9F21F01DC3494E28D1FE932007D22FBB264
+)
+
+trap - INT

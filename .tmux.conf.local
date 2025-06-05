@@ -441,10 +441,21 @@ set -g @plugin 'tmux-plugins/tmux-cpu'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'pschmitt/tmux-ssh-split'
 
 set -g @continuum-restore 'on'
 set -g @yank_action 'copy-pipe'
 set -g @yank_selection_mouse 'clipboard'
+set -g @ssh-split-keep-cwd "true"
+set -g @ssh-split-keep-remote-cwd "true"
+set -g @ssh-split-fail "false"
+set -g @ssh-split-no-env "false"
+set -g @ssh-split-no-shell "false"
+set -g @ssh-split-strip-cmd "true"
+set -g @ssh-split-verbose "true"
+set -g @ssh-split-debug "false"
+set -g @ssh-split-v-key "-"
+set -g @ssh-split-h-key "_"
 
 set -g mouse on
 

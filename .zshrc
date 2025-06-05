@@ -219,4 +219,7 @@ export SAVEHIST=99999999
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# podman
+podman completion -f "${fpath[1]}/_podman" zsh
+
 # zprof

@@ -183,6 +183,8 @@ for appimage in ~/appimage/*.appimage; do
 done
 unsetopt NULL_GLOB
 
+[[ -d "$HOME/bin" ]] && export PATH="$PATH:$HOME/bin"
+
 # add npm global to PATH
 export PATH="$HOME/.npm-global/bin:$PATH"
 

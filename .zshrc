@@ -1,5 +1,7 @@
 # zmodload zsh/zprof
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 export EDITOR="nvim"
 export GPG_TTY=$TTY
 export PATH="$HOME/.local/bin:$PATH"
@@ -135,6 +137,11 @@ alias f='fdfind'
 alias curl-safe='curl -sSf --tlsv1.2 --proto '\''=https'\'''
 alias rcopy='rsync -a --append-verify'
 alias gradlew='JAVA_HOME=/root/.sdkman/candidates/java/current bash ./gradlew'
+
+if [ "$(systemd-detect-virt || true)" = "wsl" ]; then
+    alias pbcopy="clip.exe"
+    alias pbpaste="powershell.exe Get-Clipboard"
+fi
 
 # enable glob syntax
 setopt extended_glob

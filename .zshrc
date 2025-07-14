@@ -84,6 +84,7 @@ autoload -Uz compaudit compinit
 [ ! "$(find ~/.zcompdump -mtime +1)" ] && compinit -C || compinit
 
 export NVM_LAZY_LOAD=true
+export NVM_LAZY_LOAD_EXTRA_COMMANDS=("vim", "nvim")
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/

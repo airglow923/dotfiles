@@ -46,4 +46,12 @@ return {
       require("nvim-surround").setup()
     end,
   },
+
+  {
+    "airglow923/suda.nvim",
+    lazy = false,
+    config = function()
+      require("suda").setup()
+    end,
+  },
 }

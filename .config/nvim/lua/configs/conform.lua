@@ -17,12 +17,17 @@ local options = {
     kotlin = { "ktlint" },
     lua = { "stylua" },
     sh = { "shfmt" },
-    sql = { "sqruff" },
+    sql = { "sql_formatter" },
   },
   format_on_save = {
     -- default value was 500, but ktlint behaves way too slow
     timeout_ms = 3000,
     lsp_fallback = true,
+  },
+  formatters = {
+    sql_formatter = {
+      prepend_args = { "-l", "postgresql" },
+    },
   },
 }
 

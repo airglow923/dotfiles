@@ -1,4 +1,8 @@
+-- Old:
 -- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+
+-- New:
+-- https://github.com/mason-org/mason-lspconfig.nvim/blob/main/lua/mason-lspconfig/filetype_mappings.lua
 
 return {
   mason = {
@@ -13,6 +17,7 @@ return {
       "lua-language-server", -- lua_ls
       "pyright", -- pyright
       "rust-analyzer", -- rust_analyzer
+      "sqls", -- sqls
       "typescript-language-server", -- tsserver
     },
     dap = {},
@@ -28,6 +33,7 @@ return {
       "prettier",
       "shfmt",
       "stylua",
+      "sql-formatter",
     },
   },
   lspconfig = {
@@ -41,6 +47,7 @@ return {
     "lua_ls", -- lua-language-server
     "pyright", -- pyright
     "rust_analyzer", -- rust-analyzer
+    "sqls", -- sqls
     "ts_ls", -- ts_ls
   },
   treesitter = {

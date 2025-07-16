@@ -83,15 +83,15 @@ autoload -Uz compaudit compinit
 
 [ ! "$(find ~/.zcompdump -mtime +1)" ] && compinit -C || compinit
 
-export NVM_LAZY_LOAD=true
-export NVM_LAZY_LOAD_EXTRA_COMMANDS=("vim", "nvim")
+# export NVM_LAZY_LOAD=true
+# export NVM_LAZY_LOAD_EXTRA_COMMANDS=("vim", "nvim")
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(evalcache zsh-syntax-highlighting npm git gitfast zsh-nvm autoupdate)
+plugins+=(evalcache zsh-syntax-highlighting npm git gitfast zsh-nvm autoupdate)
 
 source $ZSH/oh-my-zsh.sh
 

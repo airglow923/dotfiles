@@ -15,8 +15,9 @@ local options = {
     typescriptreact = { "prettier" },
 
     kotlin = { "ktlint" },
-    sh = { "shfmt" },
     lua = { "stylua" },
+    sh = { "shfmt" },
+    sql = { "sqruff" },
   },
   format_on_save = {
     -- default value was 500, but ktlint behaves way too slow

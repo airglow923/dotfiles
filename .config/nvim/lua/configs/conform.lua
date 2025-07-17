@@ -13,6 +13,7 @@ local options = {
     typescript = { "prettier" },
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
+    yaml = { "prettier" },
 
     kotlin = { "ktlint" },
     lua = { "stylua" },

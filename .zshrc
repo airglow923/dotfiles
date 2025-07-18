@@ -232,4 +232,7 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # podman
 podman completion -f "${fpath[1]}/_podman" zsh
 
+# fzf
+source <(fzf --zsh)
+
 # zprof

@@ -235,4 +235,7 @@ podman completion -f "${fpath[1]}/_podman" zsh
 # fzf
 source <(fzf --zsh)
 
+# venv
+source ~/.venv/bin/activate
+
 # zprof

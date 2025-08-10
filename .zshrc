@@ -235,6 +235,11 @@ podman completion -f "${fpath[1]}/_podman" zsh
 # fzf
 source <(fzf --zsh)
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+
 # venv
 source ~/.venv/bin/activate
 

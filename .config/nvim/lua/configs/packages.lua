@@ -28,7 +28,7 @@ return {
       "black",
       "clang-format",
       "cmakelang",
-      -- "gofumpt",
+      "gofumpt",
       "ktlint",
       "prettier",
       "shfmt",

@@ -19,6 +19,8 @@ local options = {
     lua = { "stylua" },
     sh = { "shfmt" },
     sql = { "sql_formatter" },
+
+    toml = { "taplo" },
   },
   format_on_save = {
     -- default value was 500, but ktlint behaves way too slow

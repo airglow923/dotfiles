@@ -34,6 +34,7 @@ return {
       "shfmt",
       "stylua",
       "sql-formatter",
+      "taplo",
     },
   },
   lspconfig = {

@@ -54,4 +54,23 @@ return {
       require("suda").setup()
     end,
   },
+
+  require "configs.codex",
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    requires = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require "configs.ibl"
+    end,
+  },
+
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+    config = function()
+      require "configs.lualine"
+    end,
+  },
 }

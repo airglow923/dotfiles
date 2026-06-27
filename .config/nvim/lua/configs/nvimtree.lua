@@ -1,4 +1,4 @@
-return {
+local opts = {
   git = {
     enable = true,
   },
@@ -11,4 +11,11 @@ return {
       },
     },
   },
+}
+
+return {
+  "nvim-tree/nvim-tree.lua",
+  -- installed by nvchad
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  opts = opts,
 }

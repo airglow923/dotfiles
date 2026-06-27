@@ -22,8 +22,6 @@ M.ui = {
       bold = true,
     },
   },
-
-  statusline = { enabled = false },
 }
 
 return M

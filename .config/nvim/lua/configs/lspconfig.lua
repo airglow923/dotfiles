@@ -28,20 +28,31 @@ local get_python_path = function()
   return vim.fn.exepath "python3" or vim.fn.exepath "python" or "python"
 end
 
-for _, server in ipairs(servers) do
-  local settings = {}
+local enable_lsps = function()
+  for _, server in ipairs(servers) do
+    local settings = {}
 
-  if server == "pyright" then
-    settings.python = { pythonPath = get_python_path() }
-    vim.print(get_python_path())
+    if server == "pyright" then
+      settings.python = { pythonPath = get_python_path() }
+      vim.print(get_python_path())
+    end
+
+    vim.lsp.config(server, {
+      on_attach = server == "sqls" and on_attach_wo_format or on_attach,
+      on_init = on_init,
+      capabilities = capabilities,
+      settings = settings,
+    })
+
+    vim.lsp.enable(server)
   end
-
-  vim.lsp.config(server, {
-    on_attach = server == "sqls" and on_attach_wo_format or on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-    settings = settings,
-  })
-
-  vim.lsp.enable(server)
 end
+
+return {
+  "neovim/nvim-lspconfig",
+  dependencies = { "williamboman/mason.nvim" },
+  config = function()
+    require("nvchad.configs.lspconfig").defaults()
+    enable_lsps()
+  end,
+}

@@ -34,4 +34,11 @@ local options = {
   },
 }
 
-require("conform").setup(options)
+return {
+  "stevearc/conform.nvim",
+  dependencies = { "williamboman/mason.nvim" },
+  event = "BufWritePre",
+  config = function()
+    require("conform").setup(options)
+  end,
+}

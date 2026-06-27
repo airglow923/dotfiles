@@ -1,10 +1,13 @@
-local M = {}
-
-M.treesitter = {
-  ensure_installed = require("configs.packages").treesitter,
-  indent = {
-    enable = true,
+local opts = {
+  treesitter = {
+    ensure_installed = require("configs.packages").treesitter,
+    indent = {
+      enable = true,
+    },
   },
 }
 
-return M
+return {
+  "nvim-treesitter/nvim-treesitter",
+  opts = opts,
+}

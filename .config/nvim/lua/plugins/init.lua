@@ -1,76 +1,19 @@
 return {
-  {
-    "stevearc/conform.nvim",
-    event = "BufWritePre",
-    config = function()
-      require "configs.conform"
-    end,
-  },
+  -- greeter
+  require "configs.alpha_nvim",
 
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("nvchad.configs.lspconfig").defaults()
-      require "configs.lspconfig"
-    end,
-  },
+  -- file management
+  require "configs.nvimtree",
+  require "configs.treesitter",
+  require "configs.nvim_surround",
+  require "configs.indent_blankline",
 
-  {
-    "williamboman/mason.nvim",
-    opts = require "configs.mason",
-  },
+  -- lsp, linter, formatters
+  require "configs.mason",
+  require "configs.conform",
+  require "configs.lspconfig",
 
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = require "configs.treesitter",
-  },
-
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = require "configs.nvimtree",
-  },
-
-  {
-    "goolord/alpha-nvim",
-    requires = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("alpha").setup(require("alpha.themes.startify").config)
-    end,
-  },
-
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup()
-    end,
-  },
-
-  {
-    "airglow923/suda.nvim",
-    lazy = false,
-    config = function()
-      require("suda").setup()
-    end,
-  },
-
+  -- utilities
+  require "configs.suda",
   require "configs.codex",
-
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    requires = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require "configs.ibl"
-    end,
-  },
-
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    lazy = false,
-    config = function()
-      require "configs.lualine"
-    end,
-  },
 }

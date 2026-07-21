@@ -4,7 +4,12 @@ local function location_handler(_, result, ctx, config)
     local _ = vim.log.info() and vim.log.info(ctx.method, "No location found")
     return nil
   end
+
   local client = vim.lsp.get_client_by_id(ctx.client_id)
+
+  if client == nil then
+    return nil
+  end
 
   config = config or {}
 
@@ -20,7 +25,7 @@ local function location_handler(_, result, ctx, config)
   -- textDocument/definition can return Location or Location[]
   -- https://microsoft.github.io/language-server-protocol/specifications/specification-current/#textDocument_definition
 
-  if vim.tbl_islist(result) then
+  if vim.islist(result) then
     local title = "LSP locations"
     local items = vim.lsp.util.locations_to_items(result, client.offset_encoding)
 
@@ -29,14 +34,15 @@ local function location_handler(_, result, ctx, config)
       config.on_list { title = title, items = items }
     else
       if #result == 1 then
-        vim.lsp.util.jump_to_location(result[1], client.offset_encoding, config.reuse_win)
+        -- vim.lsp.util.jump_to_location(result[1], client.offset_encoding, config.reuse_win)
+        vim.lsp.util.show_document(result[1], client.offset_encoding, config.reuse_win)
         return
       end
       vim.fn.setqflist({}, " ", { title = title, items = items })
       vim.api.nvim_command "botright copen"
     end
   else
-    vim.lsp.util.jump_to_location(result, client.offset_encoding, config.reuse_win)
+    vim.lsp.util.show_document(result, client.offset_encoding, config.reuse_win)
   end
 
   return location_handler

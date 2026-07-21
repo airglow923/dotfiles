@@ -39,4 +39,5 @@ vim.schedule(function()
   require "lsp"
   require "mappings"
   require "wsl"
+  require "diagnostic"
 end)

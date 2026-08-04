@@ -37,6 +37,19 @@ local enable_lsps = function()
       vim.print(get_python_path())
     end
 
+    if server == "rust_analyzer" then
+      settings = {
+        ["rust-analyzer"] = {
+          diagnostics = {
+            enable = true,
+          },
+          cargo = {
+            features = "all",
+          },
+        },
+      }
+    end
+
     vim.lsp.config(server, {
       on_attach = server == "sqls" and on_attach_wo_format or on_attach,
       on_init = on_init,

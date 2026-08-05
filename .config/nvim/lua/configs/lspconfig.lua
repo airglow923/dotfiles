@@ -40,11 +40,20 @@ local enable_lsps = function()
     if server == "rust_analyzer" then
       settings = {
         ["rust-analyzer"] = {
+          check = {
+            command = "clippy",
+          },
           diagnostics = {
             enable = true,
           },
           cargo = {
             features = "all",
+          },
+          imports = {
+            granularity = {
+              group = "module",
+            },
+            prefix = "crate",
           },
         },
       }
